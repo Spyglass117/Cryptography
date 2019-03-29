@@ -12,6 +12,7 @@ See the detailed requirements at https://github.com/HHS-IntroProgramming/Cryptog
 associations = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,:;'\"/\\<>(){}[]-=_+?!"
 test = 0
 str1 = ""
+str2 = ""
 
 while test == 0:
     command = input("Enter e to encrypt, d to decrypt, or q to quit: ")
@@ -35,6 +36,19 @@ while test == 0:
             n = n + 1
         print(str1)
     elif command == "d":
-        pass
+        message = input("Message: ")
+        key = input("Key: ")
+        while len(key) < len(message):
+            key += key
+        associations += associations
+        l = len(message)
+        while n < l:
+            numrepm1 = associations.find(message[n])
+            numrepk1 = associations.find(key[n])
+            finalnum1 = numrepm1 - numrepk1
+            letrep1 = associations[finalnum1]
+            str2 = str2 + letrep1
+            n = n + 1
+        print(str2)
     else:
         print("Did not understand command, please try again.")
