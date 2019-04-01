@@ -51,4 +51,4 @@ while test == 0:
             n = n + 1
         print(str2)
     else:
-        print("Did not understand command, please try again.")
+        print("Did not understand command, try again.")
